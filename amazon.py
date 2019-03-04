@@ -1,0 +1,2 @@
+class amazon(object):
+    pass
