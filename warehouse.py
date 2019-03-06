@@ -10,8 +10,9 @@ class Warehouse(object):
         assert len(name) == 3, 'Name must consist of first three letters of home town.'
         assert name.isupper(), 'Name must have all capital letters.'           
         self.name = name
+        self.address = address
         self.levelnr = 3 #Number of levels for inventory in the building.
-        self.levels = []
+        self.levels = {}
 
     def __str__(self):
         return 'Warehouse ' + self.name
@@ -34,9 +35,17 @@ class Warehouse(object):
         """Returns the address of the warehouse."""
         return self.address
 
+    def get_levelnr(self):
+        """Returns the number of levels of the warehouse."""
+        return self.levelnr
+    
     def get_levels(self):
         """Returns the number of levels for inventory in the building."""
-        return self.levelnr
+        return self.levels
+
+    def add_level(self, level):
+        """Adds one level to the warehouse."""
+        self.levels.setdefault(level, {})
 
 
 
